@@ -1,17 +1,58 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark-bg: #050505;
-  --color-dark-surface: #111111;
-  --color-dark-border: #222222;
-  --color-brand-primary: #8b5cf6; /* Violet */
-  --color-brand-hover: #a78bfa;
+  --color-dark-bg: #090a0f;
+  --color-dark-surface: #12141c;
+  --color-dark-border: #232736;
+  --color-neon-cyan: #00e5ff;
+  --color-neon-red: #ff3b30;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
 }
 
 body {
   background-color: var(--color-dark-bg);
   color: white;
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
   min-height: 100vh;
+  background-image: radial-gradient(circle at 50% 0%, rgba(35, 39, 54, 0.4) 0%, transparent 70%);
+}
+
+.glass-panel {
+  background: rgba(18, 20, 28, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-neon-cyan);
+  box-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+  animation: scan 2s linear infinite;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
