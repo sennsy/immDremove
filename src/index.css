@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #050505;
+  --color-dark-surface: #111111;
+  --color-dark-border: #222222;
+  --color-brand-primary: #8b5cf6; /* Violet */
+  --color-brand-hover: #a78bfa;
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: white;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
